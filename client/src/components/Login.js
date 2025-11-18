@@ -12,7 +12,7 @@ let onload=async()=>{
     let mybody=new FormData()
     mybody.append("token",localStorage.getItem("token"))
    
-    let response=await fetch("/load",{method:"POST",body:mybody})
+    let response=await fetch("http://localhost:1111/load",{method:"POST",body:mybody})
     let jsodata=await response.json()
     dispacth({type:"datasend",data:jsodata.data})
     
@@ -29,11 +29,11 @@ useEffect(()=>{
      let mybody=new FormData();
      mybody.append("email",useremailref.current.value)
      mybody.append("password",passwordref.current.value)
-     let response=await fetch("/login",{method:"POST",body:mybody})
+     let response=await fetch("http://localhost:1111/login",{method:"POST",body:mybody})
      let jsodata=await response.json()
      console.log(jsodata.msg)
      if(jsodata.msg==="invalid"){
-      alert("invalid email")
+      alert("invalid ")
      }
      if(jsodata.msg==="invalidpassword"){
       alert("invalid password")
