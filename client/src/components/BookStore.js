@@ -31,7 +31,7 @@ function BookStore() {
     
     <h5>Authorname:{ele.Authorname}</h5>
     <h5>bookName:{ele.bookName}</h5>
-    <h5>rate:{ele.rate}</h5>
+    <h5>price:{ele.rate}$</h5>
     {/* <h5>{ele.parName}</h5> */}
     <Link to="/reading"><button type='button' onClick={()=>{
      dispatch({type:"selectedbook",book: ele})

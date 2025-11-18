@@ -73,9 +73,9 @@ res.json({status:200,msg:"data is inserted is succesfully"})
 })
 app.post("/login",upload.none(),async(req,res)=>{
    let object=await model.find({email:req.body.email})
-   let hasspassword=await bcrypt.compare(req.body.password,object[0].password)
-   console.log(hasspassword)
    if(object.length!==0){
+    let hasspassword=await bcrypt.compare(req.body.password,object[0].password)
+   console.log(hasspassword)
     if(hasspassword){
       let token=jwt.sign({email:req.body.email,password:req.body.password},process.env.JWT_SECRET)
       let datasend={
@@ -131,7 +131,7 @@ app.patch("/upadte", upload.single("profilepic"), async (req, res) => {
 
     let updateData = {
       firstName: req.body.firstName,
-      // lastName: req.body.lastName,
+      // password: req.body.,
       mobileNumber: req.body.mobileNumber
     };
 

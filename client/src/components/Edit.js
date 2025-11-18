@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router'
 import Navigation from './Navigation'
 
+
 function Edit() {
     let objectdata=useSelector((store)=>{
        return store.login.data
     })
+    console.log("objectdata = ", objectdata)
+
     console.log(objectdata)
     let firstNameref=useRef()
         let lastNameref=useRef();
@@ -16,6 +19,7 @@ function Edit() {
         let profilepicref=useRef()
         let [image ,setimage]=useState("https://img.freepik.com/premium-vector/gray-picture-person-with-gray-background_1197690-22.jpg?semt=ais_hybrid&w=740&q=80")
     useEffect(()=>{
+      if(!objectdata || objectdata.length===0)return;
       firstNameref.current.value=objectdata[0].firstName
       lastNameref.current.value=objectdata[0].lastName
       emailref.current.value=objectdata[0].email
@@ -42,6 +46,8 @@ function Edit() {
 
   let data = await response.json();
   console.log(data);
+  
+  
 };
 
   return (
@@ -89,7 +95,7 @@ function Edit() {
         }}>clickme!</button>
       </form>
       
-      <Link to="/dashbroad" style={{position:"relative", right:"280px"}}>dashboard</Link>
+      <Link to="/" style={{position:"relative", right:"280px"}}>login</Link>
       </div>
     </div>
   )

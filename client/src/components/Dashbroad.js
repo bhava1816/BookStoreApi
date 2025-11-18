@@ -17,10 +17,10 @@ function Dashbroad() {
       {Array.isArray(objectdata) && objectdata.length > 0 ? (
   objectdata.map((ele, i) => (
     <div key={i} className="user-section">
-      <h1>{ele.firstName}</h1>
-      <h1>{ele.lastName}</h1>
-      <h1>{ele.email}</h1>
-      <img src={`http://localhost:1111/uploads/${ele.profilepic}`} alt=''  width="200px" height="200px"/>
+      <h3>{ele.firstName}</h3>
+      <h3>{ele.lastName}</h3>
+      <h3>{ele.email}</h3>
+      <img src={`http://localhost:1111/uploads/${ele.profilepic}`} alt=''  width="100px" height="100px" style={{borderRadius:"100px"}}/>
     </div>
     
   ))
