@@ -27,13 +27,13 @@ let upload= multer({ storage });
 let app=express();
 
 
-//app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-/*
+
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-*/
+
 
 app.use(express.json())
 app.use(cors())
