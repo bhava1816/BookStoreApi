@@ -19,7 +19,7 @@ function Navigation() {
    let myfunction=async()=>{
     let mybody=new FormData()
     mybody.append("email",objectdata[0].email)
-    let response=await fetch("http://localhost:1111/delete",{method:"DELETE",body:mybody})
+    let response=await fetch("bookstoreapi-2.onrender.com/delete",{method:"DELETE",body:mybody})
     let jsodata=await response.json()
    
     console.log(jsodata)
