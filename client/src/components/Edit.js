@@ -39,7 +39,7 @@ function Edit() {
   //   mybody.append("profilepic", file);
   // }
 
-  let response = await fetch("https://bookstoreapi-1gb1.onrender.com/upadte", {
+  let response = await fetch("/upadte", {
     method: "PATCH",
     body: mybody
   });

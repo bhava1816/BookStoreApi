@@ -27,12 +27,12 @@ let upload= multer({ storage });
 let app=express();
 
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+// app.use(express.static(path.join(__dirname, "./client/build")));
 
 
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.use((req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 
 app.use(express.json())
@@ -83,7 +83,8 @@ res.json({status:200,msg:"data is inserted is succesfully"})
 })
 app.post("/login",upload.none(),async(req,res)=>{
    let object=await model.find({email:req.body.email})
-   if(object.length!==0){
+    
+   if(object.length!==0 ){
     let hasspassword=await bcrypt.compare(req.body.password,object[0].password)
    console.log(hasspassword)
     if(hasspassword){
@@ -105,6 +106,12 @@ app.post("/login",upload.none(),async(req,res)=>{
       }
       
     }
+    else{
+      res.json({status:404,msg:"invalidpassword"})
+    }
+   }
+   else{
+    res.json({msg:"invalid"})
    }
 })
 app.post("/load",upload.none(),async(req,res)=>{

@@ -12,7 +12,7 @@ let onload=async()=>{
     let mybody=new FormData()
     mybody.append("token",localStorage.getItem("token"))
    
-    let response=await fetch("https://bookstoreapi-1gb1.onrender.com/load",{method:"POST",body:mybody})
+    let response=await fetch("/load",{method:"POST",body:mybody})
     let jsodata=await response.json()
     dispacth({type:"datasend",data:jsodata.data})
     
@@ -29,12 +29,21 @@ useEffect(()=>{
      let mybody=new FormData();
      mybody.append("email",useremailref.current.value)
      mybody.append("password",passwordref.current.value)
-     let response=await fetch("https://bookstoreapi-1gb1.onrender.com/login",{method:"POST",body:mybody})
+     let response=await fetch("/login",{method:"POST",body:mybody})
      let jsodata=await response.json()
-     console.log(jsodata)
-   localStorage.setItem("token",jsodata.data.token) 
+     console.log(jsodata.msg)
+     if(jsodata.msg==="invalid"){
+      alert("invalid email")
+     }
+     if(jsodata.msg==="invalidpassword"){
+      alert("invalid password")
+     }
+     if(jsodata.msg==="your crediential are correct"){
+       localStorage.setItem("token",jsodata.data.token) 
      navigate("/dashbroad")
     dispacth({type:"datasend",data:jsodata.data})
+     }
+   
   }
   return (
     <div className='login'>

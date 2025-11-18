@@ -11,7 +11,7 @@ function BookStore() {
     //  let [data,setdata]=useState([])
     let dispatch=useDispatch();
     let myfunction=async ()=>{
-      let response=await fetch("https://bookstoreapi-1gb1.onrender.com/bookstore",{method:"GET"})
+      let response=await fetch("/bookstore",{method:"GET"})
       let jsodata=await response.json()
       console.log(jsodata.data)
       dispatch({type:"Readingspace",data:jsodata.data})
