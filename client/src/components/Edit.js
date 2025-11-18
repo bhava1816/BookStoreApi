@@ -24,7 +24,7 @@ function Edit() {
       lastNameref.current.value=objectdata[0].lastName
       emailref.current.value=objectdata[0].email
       mobileNumberref.current.value=objectdata[0].mobileNumber
-      setimage(`/uploads/${objectdata[0].profilepic}`)
+      setimage(`http://localhost:1111/uploads/${objectdata[0].profilepic}`)
     },[objectdata])
     let myfunction = async () => {
   let mybody = new FormData();
