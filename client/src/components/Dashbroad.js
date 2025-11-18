@@ -20,7 +20,7 @@ function Dashbroad() {
       <h3>{ele.firstName}</h3>
       <h3>{ele.lastName}</h3>
       <h3>{ele.email}</h3>
-      <img src={`http://localhost:1111/uploads/${ele.profilepic}`} alt=''  width="100px" height="100px" style={{borderRadius:"100px"}}/>
+      <img src={`/uploads/${ele.profilepic}`} alt=''  width="100px" height="100px" style={{borderRadius:"100px"}}/>
     </div>
     
   ))
